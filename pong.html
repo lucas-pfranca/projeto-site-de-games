@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../projeto-site-de-games/icone/icon.png">
+    <title>Station Games</title>
+    <link rel="stylesheet" href="../projeto-site-de-games/css/style-pong.css">
+    <script type="text/javascript" src="../projeto-site-de-games/js/pong.js"></script>
+</head>
+<body background="../projeto-site-de-games/img/fundo-pong.jpg">
+    <canvas height="600" width="600" id="mycanvas"></canvas>
+</body>
+</html>
+
+<script>
+    var canvas = document.getElementById("mycanvas"); // usando o id "mycanvas" para colocar dentro da variavel canvas // 
+    var ctx = canvas.getContext("2d"); // dando o contexto, tudo o que for desenhado na variavel canvas, sera em 2d // 
+
+    // ctx.fillStyle = "white"; tudo o que for desenhado dentro da canvas sera na cor branca //
+    // ctx.fillRect(250, 250, 50, 50) desenhar na cordenada (x0, y0, 50px por 50px) dentro do canvas//
+
+    var teclas = {};
+    var bola = {
+        x: canvas.width / 2 - 15,
+        y: canvas.height / 2 - 15,
+        altura: 30,
+        largura: 30,
+        dirx: -1,
+        diry: 1,
+        mod: 0,
+        speed: 50
+
+    };
+
+    var esquerda = {
+        x: 10,
+        y: cavas.height / 2 - 60,
+        altura: 120,
+        largura: 30,
+        score: 0,
+        speed: 15
+
+    };
+    var direita = {
+        x: 560,
+        y: cavas.height / 2 - 60,
+        altura: 120,
+        largura: 30,
+        score: 0,
+        speed: 15
+
+    };
+</script>

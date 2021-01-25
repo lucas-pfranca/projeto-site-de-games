@@ -6,49 +6,88 @@
     <link rel="shortcut icon" href="../projeto-site-de-games/icone/icon.png">
     <title>Station Games</title>
     <link rel="stylesheet" href="../projeto-site-de-games/css/style-pong.css">
-    <script type="text/javascript" src="../projeto-site-de-games/js/pong.js"></script>
 </head>
 <body background="../projeto-site-de-games/img/fundo-pong.jpg">
     <canvas height="600" width="600" id="mycanvas"></canvas>
+    <script>
+        var canvas = document.getElementById("mycanvas"); // usando o id "mycanvas" para colocar dentro da variavel canvas // 
+        var ctx = canvas.getContext("2d"); // dando o contexto, tudo o que for desenhado na variavel canvas, sera em 2d // 
+    
+       // ctx.fillStyle = "white"; tudo o que for desenhado dentro da canvas sera na cor branca //
+       // ctx.fillRect(250, 600, 50, 50) desenhar na cordenada (x0, y0, 50px por 50px) dentro do canvas//
+    
+        var teclas = {};
+        var bola = {
+            x: canvas.width / 2 - 15,
+            y: canvas.height / 2 - 15,
+            altura: 30,
+            largura: 30,
+            dirx: -1,
+            diry: 1,
+            mod: 0,
+            speed: 50
+    
+        };
+    
+        var esquerda = {
+            x: 10,
+            y: canvas.height / 2 - 60,
+            altura: 120,
+            largura: 30,
+            score: 0,
+            speed: 15
+    
+        };
+        var direita = {
+            x: canvas.width - 40,
+            y: canvas.height / 2 - 60,
+            altura: 120,
+            largura: 30,
+            score: 0,
+            speed: 15
+    
+        };
+
+        document.addEventListener("keydown", function(e) {
+            teclas[e.keyCode] = true;
+
+        }, false);
+
+        document.addEventListener("keyup", function(e){
+            delete teclas[e.keyCode];
+        }, false)
+
+        function moveBloco() {
+            if(87 in teclas && esquerda.y > 0)
+                esquerda.y -= esquerda.speed;
+
+            if(83 in teclas && esquerda.y + esquerda.altura < canvas.height )       
+                esquerda.y += esquerda.speed;
+            
+            if(38 in teclas && direita.y > 0)
+                direita.y -= direita.speed;
+            
+            if(40 in teclas && direita.y + direita.altura < canvas.height)
+                direita.y += direita.speed;
+        }
+    
+        function desenha() {
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            moveBloco();
+    
+            ctx.fillStyle = "white";
+            ctx.fillRect(bola.x, bola.y, bola.largura, bola.altura)
+            ctx.fillRect(esquerda.x, esquerda.y, esquerda.largura, esquerda.altura)
+            ctx.fillRect(direita.x, direita.y, direita.largura, direita.altura)
+    
+            ctx.font = '20px Arial';
+            ctx.fillText("Player 1: " + esquerda.score, 50, 20);
+            ctx.fillText("Player 2: " + direita.score, canvas.width - 150, 20);
+        }
+    
+        setInterval(desenha, 15)
+    </script>
 </body>
 </html>
 
-<script>
-    var canvas = document.getElementById("mycanvas"); // usando o id "mycanvas" para colocar dentro da variavel canvas // 
-    var ctx = canvas.getContext("2d"); // dando o contexto, tudo o que for desenhado na variavel canvas, sera em 2d // 
-
-    // ctx.fillStyle = "white"; tudo o que for desenhado dentro da canvas sera na cor branca //
-    // ctx.fillRect(250, 250, 50, 50) desenhar na cordenada (x0, y0, 50px por 50px) dentro do canvas//
-
-    var teclas = {};
-    var bola = {
-        x: canvas.width / 2 - 15,
-        y: canvas.height / 2 - 15,
-        altura: 30,
-        largura: 30,
-        dirx: -1,
-        diry: 1,
-        mod: 0,
-        speed: 50
-
-    };
-
-    var esquerda = {
-        x: 10,
-        y: cavas.height / 2 - 60,
-        altura: 120,
-        largura: 30,
-        score: 0,
-        speed: 15
-
-    };
-    var direita = {
-        x: 560,
-        y: cavas.height / 2 - 60,
-        altura: 120,
-        largura: 30,
-        score: 0,
-        speed: 15
-
-    };
-</script>

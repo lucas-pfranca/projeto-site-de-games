@@ -6,33 +6,33 @@ var canvas = document.getElementById("mycanvas"); // usando o id "mycanvas" para
 
     var teclas = {};
     var bola = {
-        x: canvas.width / 2 - 15,
-        y: canvas.height / 2 - 15,
-        altura: 30,
-        largura: 30,
-        dirx: -1,
-        diry: 1,
-        mod: 0,
-        speed: 1
+        x: canvas.width / 2 - 15, // cordenada x da bola   canvas.largura dividido por 2 menos a metade da largura 
+        y: canvas.height / 2 - 15, // cordenada y da bola   canvas.altura dividido por 2 menos a metade da altura 
+        altura: 30, // altura da bolinha é igual a 30
+        largura: 30, // largura da bolinha é igual a 30
+        dirx: -1, // direção em x para onde a bolinha vai, no caso, ela começa indo para a esquerda, por isso decrementamos
+        diry: 1, // direção em y para onde a bolinha vai, no caso, ela começa indo para a esquerda e para baixo, por isso incrementamos
+        mod: 0, // modificador de velocidade da bolinha
+        speed: 1 // velocidade inicial da bolinha
 
     };
 
     var esquerda = {
-        x: 10,
-        y: canvas.height / 2 - 60,
-        altura: 120,
-        largura: 30,
-        score: 0,
-        speed: 10
+        x: 10, // queremos que x do bloco da esquerdo comece com 10 pixels da borda esquerda
+        y: canvas.height / 2 - 60, // queremos y no centro da borda esquerda do canvas       canvas.altura dividido por 2 menos metade da altura
+        altura: 120, // altura do bloco esquerdo é igual a 120
+        largura: 30, // largura do bloco esquerdo é igual a 30
+        score: 0, // pontuação do bloco esquerdo começa com 0
+        speed: 10 // velocidade do bloco esquerdo é igual a 10
 
     };
     var direita = {
-        x: canvas.width - 40,
-        y: canvas.height / 2 - 60,
-        altura: 120,
-        largura: 30,
-        score: 0,
-        speed: 10
+        x: canvas.width - 40, // queremos que o bloco direito comece em 560 no x, pois a largura total da canvas é 600px, então precisamos deixar 30 de largura e 10 de espaçamento para a borda direita 
+        y: canvas.height / 2 - 60, // queremos y no centro da borda direita do canvas       canvas.altura dividido por 2 menos metade da altura
+        altura: 120, // altura do bloco direito 
+        largura: 30, // largura do bloco direito
+        score: 0, // pontuação do bloco direito começa com 0
+        speed: 10 // velocidade do bloco direito é igual a 10
 
     };
 
@@ -103,8 +103,8 @@ var canvas = document.getElementById("mycanvas"); // usando o id "mycanvas" para
 
         ctx.fillStyle = "white";
         ctx.fillRect(bola.x, bola.y, bola.largura, bola.altura)
-        ctx.fillRect(esquerda.x, esquerda.y, esquerda.largura, esquerda.altura)
-        ctx.fillRect(direita.x, direita.y, direita.largura, direita.altura)
+        ctx.fillRect(esquerda.x, esquerda.y, esquerda.largura, esquerda.altura) // nessa parte do bloco dentro da função desenha, usamos o fillRect para preencher dentro de canvas
+        ctx.fillRect(direita.x, direita.y, direita.largura, direita.altura)     // e o fillStyle para dar uma cor 
 
         ctx.font = '20px Arial';
         ctx.fillText("Player 1: " + esquerda.score, 50, 20);

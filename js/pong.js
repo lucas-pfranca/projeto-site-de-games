@@ -36,16 +36,16 @@ var canvas = document.getElementById("mycanvas"); // usando o id "mycanvas" para
 
     };
 
-    document.addEventListener("keydown", function(e) {
-        teclas[e.keyCode] = true;
+    document.addEventListener("keydown", function(e) { // toda vez que uma tecla for executada, ativará a função com o parametro "e"
+        teclas[e.keyCode] = true; // atribuindo um valor verdadeiro para a variavel "teclas" // o keyCode serve para ver o número de cada tecla ao clica-la
 
     }, false);
 
-    document.addEventListener("keyup", function(e){
+    document.addEventListener("keyup", function(e){ // vai tirar da variavel teclas, a tecla que foi apertada
         delete teclas[e.keyCode];
     }, false)
 
-    function moveBloco() {
+    function moveBloco() { // função com o objetivo de fazer a movimentação dos blocos 
         if(87 in teclas && esquerda.y > 0)
             esquerda.y -= esquerda.speed;
 
@@ -106,9 +106,9 @@ var canvas = document.getElementById("mycanvas"); // usando o id "mycanvas" para
         ctx.fillRect(esquerda.x, esquerda.y, esquerda.largura, esquerda.altura) // nessa parte do bloco dentro da função desenha, usamos o fillRect para preencher dentro de canvas
         ctx.fillRect(direita.x, direita.y, direita.largura, direita.altura)     // e o fillStyle para dar uma cor 
 
-        ctx.font = '20px Arial';
-        ctx.fillText("Player 1: " + esquerda.score, 50, 20);
-        ctx.fillText("Player 2: " + direita.score, canvas.width - 150, 20);
+        ctx.font = '20px Arial'; // tamanho da fonte e estilo da fonte
+        ctx.fillText("Player 1: " + esquerda.score, 50, 20); // Escrevendo "Player 1" dentro do canvas
+        ctx.fillText("Player 2: " + direita.score, canvas.width - 150, 20); // Escrevendo "Player 2" dentro do canvas
     }
 
     setInterval(desenha, 5)

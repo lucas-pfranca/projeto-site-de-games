@@ -59,7 +59,7 @@ var canvas = document.getElementById("mycanvas"); // usando o id "mycanvas" para
             direita.y += direita.speed;
     }
 
-    function moveBola() {
+    function moveBola() { // função com o objetivo de fazer a movimentação da bola
         if(bola.y + bola.altura >= esquerda.y && bola.y <= esquerda.y + esquerda.altura && bola.x <= esquerda.x + esquerda.largura) {
             bola.dirx = 1;
             bola.mod += 0.2;
@@ -85,7 +85,7 @@ var canvas = document.getElementById("mycanvas"); // usando o id "mycanvas" para
     function newGame(winner) {
         if(winner == "Player 1")
             esquerda.score++;
-        else(winner == "Player 2")
+        else
             direita.score++;
         
         esquerda.y = canvas.height / 2 - esquerda.altura / 2;

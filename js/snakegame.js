@@ -20,7 +20,7 @@ function desenharFundo() {
 
 function desenharCobra() {
     for(i = 0;i < snake.length; i++) {
-        ctx.fillStyle = 'cyan'
+        ctx.fillStyle = 'green'
         ctx.fillRect(snake[i].x, snake[i].y, box, box)
     }
 }

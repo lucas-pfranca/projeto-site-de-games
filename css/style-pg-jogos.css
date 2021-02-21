@@ -1,0 +1,41 @@
+* {
+  color: white;
+}
+
+h1 {
+  font-size: 50px;
+  color: #ffc400;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.sobre {
+  margin-right: 5%;
+  font-size: 20px;
+}
+
+.sp {
+  margin-top: 6%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+}
+
+h2 {
+  font-size: 40px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.img {
+  margin-left: 7%;
+}
